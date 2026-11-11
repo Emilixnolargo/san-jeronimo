@@ -35,6 +35,8 @@ export class RegisterUser {
 
         const userData = new User({
         name: user.name,
+       inedsaje: user.inedsaje,
+        genero: user.genero,
         email: user.email,
         passwordHash: passwordData
    })
