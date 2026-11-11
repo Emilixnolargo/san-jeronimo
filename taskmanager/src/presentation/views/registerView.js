@@ -29,11 +29,11 @@ export function showRegisterView(container, presenter) {
                    
                         <select
                      id="registre_institucion"
-                      name="inedsaje"
+                      name="registresuinstitucion"
                       required
                       >
                        <option value="" disabled selected>
-            Seleccione su institución
+            Seleccione su institucion
         </option>
 
         <option value="INEDSAJE">
@@ -53,7 +53,7 @@ export function showRegisterView(container, presenter) {
         </option>
 
         <option value="Otra">
-            Otra institución
+            Otra institucion
         </option>
     </select>
 </div>
@@ -67,7 +67,7 @@ export function showRegisterView(container, presenter) {
                         <input
                             type=""
                             id="registre su nombre"
-                            name="nombre"
+                            name="name"
                             placeholder="tu nombre"
                             required
                         >
@@ -219,16 +219,16 @@ export function showRegisterView(container, presenter) {
         const formData = new FormData(registerForm);
 
         const userData = {
-            registresuinstitucion: formData.get("inedsaje"), 
+            institucion: formData.get("institucion"), 
             name: formData.get("name"),
             tipodeusuario: formData.get("tipo de usuario"), 
             Genero: formData.get("genero"),
             email: formData.get("email"),
-            contraseña: formData.get("contraseña"), 
+            contrasena: formData.get("contraseñssa"), 
             activo: formData.get("activo"), 
             password: formData.get("password")
         };
-
+      
         presenter.register(userData);
     });
 
