@@ -1,146 +1,74 @@
-/*
- * Register View
- *
- * Responsabilidad:
- * - Mostrar la interfaz de registro.
- * - Capturar las acciones del usuario.
- * - Informar esas acciones al Presenter.
- *
- * NO contiene lógica de registro.
- */
-
 export function showRegisterView(container, presenter) {
     container.innerHTML = `
         <section class="auth-container">
             <div class="auth-card">
 
                 <header class="auth-header">
-                    <h1>crear cuenta/h1>
+                    <h1>Crear cuenta</h1>
                     <p>Regístrate para comenzar</p>
                 </header>
 
                 <form id="register-form" class="auth-form">
 
-                   <div class="form-group">
-                        <label for="registre isntitucion">
-                          istitucion educativa
-                        </label>
-
-                   
-                        <select
-                     id="registre_institucion"
-                      name="registresuinstitucion"
-                      required
-                      >
-                       <option value="" disabled selected>
-            Seleccione su institucion
-        </option>
-
-        <option value="INEDSAJE">
-            inedsaje
-        </option>
-
-        <option value="Institucion 2">
-            inedsalo
-        </option>
-
-        <option value="Institucion 3">
-            inedsanjo
-        </option>
-
-        <option value="Institucion 4">
-            ineri
-        </option>
-
-        <option value="Otra">
-            Otra institucion
-        </option>
-    </select>
-</div>
-    
-
-                    <div class="form-group">
-                        <label for="register su nombre">
-                            nombre
+                    
+                    <label for="institucion">elige tu institucion:</label>
+                  
+                      
+                    <select id="institucion" name="institucion" class = auth-form>
+                      
+                      <option value = "elige tu institucion"> Elige tu institucion</option>
+                      <option value = "I.E San jeronimo"> I.E San Jeronimo</option>
+                       <option value = "I.E San Lorenzo"> I.E San Lorenzo</option>
+                       <option value = "I.E San Jose" > I.E San Jose</option>
+                    </select>
+                
+                <div class="form-group">
+                        <label for="register-name">
+                            Nombre
                         </label>
 
                         <input
-                            type=""
-                            id="registre su nombre"
+                            type="text"
+                            id="register-name"
                             name="name"
-                            placeholder="tu nombre"
+                            placeholder="Tu nombre"
                             required
                         >
                     </div>
+                         
+                     
+                   
 
-                        <div class="form-group">
-                        <label for="tipo de usuario">
-                            usuario
-                        </label>
+                    <label for="tipodeusuario">elige un tipo de usuario:</label>
 
-                           <select
-                     id="tipo de usuario"
-                      name="tipo de usuario"
-                      required
-                      >
-                       <option value="" disabled selected>
-            tipo de usuario
-        </option>
-
-        <option value="estudiante">
-            estudiante
-        </option>
-
-        <option value="profesor">
-           profesor
-        </option>
-
-       
-        </option>
-    </select>
-</div>
-    
+                      <select id="tipodeusuario" name="tipodeusuario">
                       
+                      <option value = "elige tu tipo de usuario"> elige tu tipo de usuario</option>
+                      <option value = "profesor"> profesor</option>
+                       <option value = "Estudiante"> Estudiante</option>
+                       <option value = "trabajador"> trabajador</option>
+                       
+                       </select>
+                     
+                    
+                  <label for="genero"> 
+                  elige tu genero:</label>
 
-                  
-                    <div class="form-group">
-                        <label for="register su genero">
-                            indique su genero
-                        </label>
-
-                           <select
-                     id="registre su genero"
-                      name="genero"
-                      required
-                      >
-                       <option value="" disabled selected>
-            Seleccione su genero
-        </option>
-
-        <option value="mujer">
-            mujer
-        </option>
-
-        <option value="hombre">
-           hombre
-        </option>
-
-       
-        </option>
-    </select>
-</div>
-    
+                      <select id="genero" name="genero">
                       
-
-
+                      <option value = "Elige tu genero"> Elige tu genero</option>
+                      <option value = "Masculino"> Masculino</option>
+                       <option value = "Femenino"> Femenino</option>
+                       </select>
                 
+                   
                     <div class="form-group">
                         <label for="register-email">
-                            correo electronico
+                            Correo electrónico
                         </label>
 
                         <input
-                            type=""
+                            type="email"
                             id="register-email"
                             name="email"
                             placeholder="correo@ejemplo.com"
@@ -162,25 +90,22 @@ export function showRegisterView(container, presenter) {
                         >
                     </div>
 
-                    <div class="form-group">
-
-    <label for="register-activo">
-        Activo
-    </label>
-
-    <input
-        type="checkbox"
-        id="register-activo"
-        name="activo"
-        value="true"
-        checked
-    >
-
-</div>
+                <div class = "form-group">
+                    <label for = "register-activo"> 
+                      <input 
+                       type = "checkbox"
+                       id = "register-activo"
+                       name = "activo"
+                       value ="activo"
+                       checked
+                       >
+                      activo
+                    </label>
+                </div>  
 
                     <button
                         type="submit"
-                        class="button button-primary"
+                        class="btn btn-success"
                     >
                         Crear cuenta
                     </button>
@@ -201,13 +126,41 @@ export function showRegisterView(container, presenter) {
 
                 </div>
 
-                <p
-                    id="register-message"
-                    class="form-message"
-                ></p>
+                    <p
+                        id="register-message"
+                        class="form-message"
+                    ></p>
 
-            </div>
-        </section>
+              
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">registro de usuarios</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p><strong> institucion </strong> <spam id= "confimIE"></spam></p>
+             <p><strong> name </strong> <spam id = "confimname"></spam></p>
+              <p><strong> tipodeusuario </strong> <spam id = "confimTDU"></spam></p>
+               <p><strong> genero </strong> <spam id = "confimgenero"></spam></p>
+                <p><strong> email </strong> <spam id = "confimemail"></spam></p>
+                 <p><strong> password </strong> <spam id = "confimpassword"></spam></p>
+                  <p><strong> activo </strong> <spam id = "confimactivo"></spam></p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" id = "btn-confirmar"  class="btn btn-primary">confirmar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+       
+       
+       </section>
     `;
 
     const registerForm =
@@ -217,21 +170,40 @@ export function showRegisterView(container, presenter) {
         event.preventDefault();
 
         const formData = new FormData(registerForm);
-
+        const modalElement = document.getElementById("staticBackdrop");
+        const modal = new bootstrap.Modal(modalElement);
         const userData = {
-            institucion: formData.get("institucion"), 
+            
+            institucion: formData.get("institucion"),
             name: formData.get("name"),
-            tipodeusuario: formData.get("tipo de usuario"), 
-            Genero: formData.get("genero"),
+            tipodeusuario: formData.get("tipodeusuario"),
+            genero: formData.get("genero"),
             email: formData.get("email"),
-            contrasena: formData.get("contraseñssa"), 
-            activo: formData.get("activo"), 
-            password: formData.get("password")
+            password: formData.get("password"),
+            activo : formData.get("activo")
         };
-      
-        presenter.register(userData);
-    });
+         document.getElementById("confimIE").textContent = userData.institucion;
+         document.getElementById("confimname").textContent = userData.name;
+         document.getElementById("confimTDU").textContent = userData.tipodeusuario;
+         document.getElementById("confimgenero").textContent = userData.genero;
+         document.getElementById("confimemail").textContent = userData.email;
+         document.getElementById("confimpassword").textContent = "*******";
+         document.getElementById("confimactivo").textContent = userData.activo;
+          
+         registerForm.dataset.userData= JSON.stringify(userData);
+        modal.show(); 
+        
+         //presenter.register(userData);
 
+    });
+document.getElementById("btn-confirmar").addEventListener("click", () => {
+const userData = JSON.parse(registerForm.dataset.userData);
+presenter.register(userData);
+const modalId = document.getElementById("staticBackdrop");
+const modal = bootstrap.Modal.getOrCreateInstance(modalId);
+modal.hide();
+});
+    
     const loginButton =
         document.getElementById("show-login");
 
@@ -240,11 +212,12 @@ export function showRegisterView(container, presenter) {
     });
 }
 
-export function showRegisterMessage(message) {
-    const messageElement =
-        document.getElementById("register-message");
-
-    if (messageElement) {
-        messageElement.textContent = message;
-    }
+export function showRegisterMessage(message, alert = "success") {
+  const messageElement = document.getElementById("register-message");
+  if (messageElement) {
+    messageElement.innerHTML = `
+      <div class="alert alert-${alert}" role="alert">
+        ${message}
+      </div>`;
+  }
 }
